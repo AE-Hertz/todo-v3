@@ -1,0 +1,222 @@
+body {
+  background: -webkit-linear-gradient(135deg, #590d22ff, #800f2fff, #a4133cff, #c9184aff, #ff4d6dff, #ff758fff, #ff8fa3ff, #ffb3c1ff, #ffccd5ff, #fff0f3ff);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.to-do-list {
+  text-align: center;
+  margin-top: 100px;
+  color: rgb(54, 52, 52);
+  margin-inline: 16px;
+}
+
+h1 {
+  font-size: 4rem;
+  margin: 20px;
+  color: black;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+}
+
+button {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.add-button {
+  background-color: #8a1536;
+}
+
+.add-button:hover {
+  background-color: #df2257;
+}
+
+.delete-button {
+  background-color: red;
+}
+
+.delete-button:hover {
+  background-color: rgba(255, 0, 0, 0.527);
+}
+
+.move-button {
+  background-color: black;
+}
+
+.move-button:hover {
+  background-color: rgba(0, 0, 0, 0.521);
+}
+
+input[type="text"], input[type="date"], input[type="time"] {
+  font-size: 1.5rem;
+  padding: 10px;
+  border: 2px solid;
+  border-radius: 8px;
+  color: rgb(3, 3, 3);
+  outline: none;
+  margin-right: 10px;
+  background-color: inherit;
+  -webkit-text-fill-color: rgba(48, 48, 48, 0.479);
+  margin-bottom: 10px;
+}
+
+input[type="text"]:focus, input[type="date"]:focus, input[type="time"]:focus {
+  outline: #fc3b72 solid 3px;
+  backdrop-filter: blur(4px) saturate(150%);
+}
+
+ol {
+  padding: 0;
+}
+
+li {
+  font-size: 2rem;
+  font-weight: normal;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 3px solid rgb(250, 87, 117);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  flex: 1;
+  text-align: center;
+}
+
+.date, .time {
+  font-size: 1.2rem;
+  margin-left: 10px;
+  color: gray;
+}
+
+.delete-button, .move-button, .complete-button {
+  padding: 8px 12px;
+  font-size: 1.2rem;
+  margin-left: 5px;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header img {
+  width: 30px;
+  filter: invert(1);
+}
+
+header {
+  width: auto;
+  margin: auto;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 20px;
+  background-color: black;
+  color: white;
+}
+
+header nav ul {
+  display: flex;
+  gap: 30px;
+}
+
+.task-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pending-tasks, .completed-tasks {
+  width: 48%;
+}
+
+h2 {
+  text-align: center;
+}
+
+@media (max-width: 768px) { 
+  h1 {
+    font-size: 3rem;
+  }
+
+  button {
+    font-size: 1.2rem;
+    padding: 8px 16px;
+  }
+
+  input[type="text"], input[type="date"], input[type="time"] {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
+
+  li {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+
+  .task-columns {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .pending-tasks, .completed-tasks {
+    width: 100%; 
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+
+  input[type="text"], input[type="date"], input[type="time"] {
+    font-size: 1rem;
+    padding: 6px;
+  }
+
+  li {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
+
+  header {
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+
+  header nav ul {
+    flex-direction: column; 
+    gap: 10px; 
+  }
+
+  .task-columns {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .pending-tasks, .completed-tasks {
+    width: 100%; 
+    margin-bottom: 10px; 
+  }
+}
