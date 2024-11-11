@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { MdOutlineKeyboardDoubleArrowUp, MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
 import icon from "/src/assets/icon.svg";
 
 function ToDoList() {
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState(() => {
+        const savedTasks = localStorage.getItem("tasks");
+        return savedTasks ? JSON.parse(savedTasks) : [];
+    });
     const [newTask, setNewTask] = useState("");
     const [taskDate, setTaskDate] = useState("");
     const [taskTime, setTaskTime] = useState("");
+
+    useEffect(() => {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }, [tasks]);
 
     function handleInputChange(event) {
         setNewTask(event.target.value);
@@ -21,15 +29,16 @@ function ToDoList() {
 
     function addTask() {
         if (newTask.trim() !== "" && taskDate && taskTime) {
-            setTasks((prevTasks) => [
-                ...prevTasks,
+            const newTasks = [
+                ...tasks,
                 {
                     text: newTask,
                     date: taskDate,
                     time: taskTime,
                     completed: false,
                 },
-            ]);
+            ];
+            setTasks(newTasks);
             setNewTask("");
             setTaskDate("");
             setTaskTime("");
@@ -154,13 +163,13 @@ function ToDoList() {
                                             className="move-button"
                                             onClick={() => moveTaskUp(task)}
                                         >
-                                            👆
+                                            <MdOutlineKeyboardDoubleArrowUp/>
                                         </button>
                                         <button
                                             className="move-button"
                                             onClick={() => moveTaskDown(task)}
                                         >
-                                            👇
+                                            <MdOutlineKeyboardDoubleArrowDown />
                                         </button>
                                     </li>
                                 ))}
@@ -203,13 +212,13 @@ function ToDoList() {
                                             className="move-button"
                                             onClick={() => moveTaskUp(task)}
                                         >
-                                            👆
+                                            <MdOutlineKeyboardDoubleArrowUp />
                                         </button>
                                         <button
                                             className="move-button"
                                             onClick={() => moveTaskDown(task)}
                                         >
-                                            👇
+                                            <MdOutlineKeyboardDoubleArrowDown />
                                         </button>
                                     </li>
                                 ))}

@@ -24,7 +24,6 @@ h1 {
 button {
   font-size: 1.5rem;
   font-weight: bold;
-  padding: 10px 20px;
   color: white;
   border: none;
   border-radius: 5px;
@@ -100,10 +99,20 @@ li {
   color: gray;
 }
 
-.delete-button, .move-button, .complete-button {
+.delete-button, .complete-button {
   padding: 8px 12px;
   font-size: 1.2rem;
   margin-left: 5px;
+}
+
+.move-button{
+  padding: 3px 6px;
+  margin-left: 5px;
+}
+
+.move-button svg{
+  width: 30px;
+  height: 30px;
 }
 
 * {
@@ -156,7 +165,6 @@ h2 {
 
   button {
     font-size: 1.2rem;
-    padding: 8px 16px;
   }
 
   input[type="text"], input[type="date"], input[type="time"] {
